@@ -18,6 +18,15 @@
     <link rel="stylesheet" type="text/css" href="{!! asset('css/plugins/alertify/alertify.min.css') !!}">
     <link rel="stylesheet" type="text/css" href="{!! asset('css/plugins/alertify/default.min.css') !!}">
 
+    <style type="text/css">
+        label.is-invalid{
+            background-color: #FFFFFF;
+            color: #e0250c;
+            font-style: bold;
+            font-size:11px;
+        }
+    </style>
+
 </head>
 <body>
     <div class="container">
@@ -101,6 +110,11 @@
     <!-- Alertify -->
     <script type="text/javascript" src="{!! asset('js/plugins/alertify/alertify.min.js') !!}"></script>
 
+    <!-- jquery-validate -->
+    <script type="text/javascript" src="{!! asset('js/plugins/jquery-validate/jquery.validate.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/plugins/jquery-validate/additional-methods.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/plugins/jquery-validate/messages_es.min.js') !!}"></script>
+    
     <script type="text/javascript" src="{{ asset('js/views/employee.js') }}"></script>
 
 </body>

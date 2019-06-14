@@ -27,8 +27,21 @@ $(document).ready(function(){
     $("#btnNew").click(function (e) { 
         e.preventDefault();
         sowModal();
+        initValidator();
     });
 });
+
+function initValidator(){
+    $('#frmMnto').validate({
+        errorClass: "is-invalid",
+        rules:{
+            txtName: {required: true},
+            txtAddress: {required: true},
+            txtSalary: {required: true, number: true}
+        },
+        submitHandler: function(form) { save(); }
+    });
+}
 
 function edit(id){
     //bootbox.alert("This is the default alert! " + id);
@@ -79,18 +92,18 @@ function sowModal(){
         //size: 'large',
         buttons: {
             cancel: {
-                label: "Cerrar",
-                className: 'btn-danger',
+                label: 'Cerrar',
+                className: 'btn-danger btn-sm',
                 callback: function(){
                     console.log('Custom cancel clicked');
                 }
             },
             ok: {
-                label: "Guaradar",
-                className: 'btn-info',
+                label: 'Guaradar',
+                className: 'btn-info btn-sm',
                 callback: function(){
-                    console.log('Custom OK clicked');
-                    save();
+                    $("#frmMnto").submit();
+                    return false;
                 }
             }
         }
@@ -98,6 +111,7 @@ function sowModal(){
 }
 
 function save(){
+    bootbox.hideAll();
     data = $("#frmMnto").serialize();
     console.log(data);
     $.ajax({
