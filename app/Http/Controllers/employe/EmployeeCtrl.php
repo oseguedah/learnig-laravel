@@ -1,9 +1,9 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\employe;
 
 use App\Employee;
 
-class EmployeeCtrl extends BaseController
+class EmployeeCtrl extends \App\Http\Controllers\BaseController
 {
 	public function __construct(){
 			

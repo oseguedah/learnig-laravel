@@ -16,9 +16,13 @@ Route::get('/', function () {
 });
 
 Route::group(array('prefix'=>'employees'),function(){
-    Route::get('/', 'EmployeeCtrl@employees');
-    Route::get('grid', 'EmployeeCtrl@grid');
-    Route::post('save', 'EmployeeCtrl@save');
-    Route::get('get', 'EmployeeCtrl@get');
-    Route::delete('delete', 'EmployeeCtrl@delete');
+    Route::get('/', 'employe\EmployeeCtrl@employees')->name('employee.main');
+    Route::get('grid', 'employe\EmployeeCtrl@grid')->name('employee.grid');
+    Route::post('save', 'employe\EmployeeCtrl@save')->name('employee.save');
+    Route::get('get', 'employe\EmployeeCtrl@get')->name('employee.get');
+    Route::delete('delete', 'employe\EmployeeCtrl@delete')->name('employee.delete');;
+});
+
+Route::group(array('prefix'=>'commons'),function(){
+    Route::get('/', 'ConstansJsCtrl@getConstants')->name('commons.constants');
 });

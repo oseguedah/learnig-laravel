@@ -4,7 +4,7 @@ $(document).ready(function(){
         language:{
             url: "http://localhost/crud/public/js/plugins/DataTables/spanish.lang.json"
         },
-        ajax: "http://localhost/crud/public/employees/grid",
+        ajax: CONSTANTS.url.employee['employee.grid'],
         columnDefs: [
             {targets: 0, visible: false, searchable: false},
             {
@@ -46,9 +46,10 @@ function initValidator(){
 function edit(id){
     //bootbox.alert("This is the default alert! " + id);
     sowModal();
+    initValidator();
     $.ajax({
         type: "GET",
-        url: "http://localhost/crud/public/employees/get",
+        url: CONSTANTS.url.employee['employee.get'],
         data: {txtId : id},
         success: function (response) {
             if (response.success){
@@ -67,7 +68,7 @@ function del(id){
 
             $.ajax({
                 type: "DELETE",
-                url: "http://localhost/crud/public/employees/delete",
+                url: CONSTANTS.url.employee['employee.delete'],
                 data: {txtId : id, _token: $("#_token").val()},
                 success: function (response) {
                     if (response.success){
@@ -116,7 +117,7 @@ function save(){
     console.log(data);
     $.ajax({
         type: "POST",
-        url: "http://localhost/crud/public/employees/save",
+        url: CONSTANTS.url.employee['employee.save'],
         data: data,
         success: function (response) {
             console.log(response);

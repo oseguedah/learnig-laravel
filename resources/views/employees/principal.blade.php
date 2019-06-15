@@ -93,6 +93,19 @@
     <!-- Jquery -->
     <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
 
+    <script>
+        var CONSTANTS = null;
+
+        $.ajax({
+        type: "GET",
+        url: "{{ route('commons.constants') }}",
+        success: function (response) {
+            CONSTANTS = response;
+        }
+    });
+
+    </script>
+
     <!-- Bootstrap -->
     <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
